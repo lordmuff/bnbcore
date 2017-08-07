@@ -1,0 +1,17 @@
+[
+{
+  "modid": "bnbgamingcore",
+  "name": "BnBGamingCore",
+  "description": "The BloodNBonesGaming core mod. Contains all ASM for all of our mods.",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
+  "url": "http://bloodnbonesgaming.com/",
+  "updateUrl": "",
+  "authorList": ["Blargerist, superckl"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [],
+  "requiredMods": []
+}
+]
