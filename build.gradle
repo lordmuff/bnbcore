@@ -41,7 +41,7 @@ configFile.withReader {
 
 version = config.minecraft_version + "-" + config.mod_version
 group = "com.bloodnbonesgaming.bnbgamingcore"
-archivesBaseName = "BnBGamingCore"
+archivesBaseName = "BNBGamingCore"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
@@ -76,6 +76,5 @@ processResources
 jar {
 	manifest {
 		attributes 'FMLCorePlugin': 'com.bloodnbonesgaming.bnbgamingcore.core.BNBGamingCorePlugin'
-		attributes 'FMLCorePluginContainsFMLMod': 'true'
 	}
 }

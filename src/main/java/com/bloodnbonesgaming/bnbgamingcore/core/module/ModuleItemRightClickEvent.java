@@ -9,6 +9,7 @@ import org.objectweb.asm.tree.MethodNode;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionRegistry;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ASMDebugHelper;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ObfNameHelper;
+import com.bloodnbonesgaming.bnbgamingcore.core.util.ObfNameHelper.Classes;
 
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ASMHelper;
 
@@ -18,7 +19,7 @@ public class ModuleItemRightClickEvent implements IClassTransformerModule
 	public String[] getClassesToTransform()
 	{
 		return new String[]{
-				ObfNameHelper.Classes.ITEMSTACK.getName()
+				Classes.ITEMSTACK.getName()
 		};
 	}
 

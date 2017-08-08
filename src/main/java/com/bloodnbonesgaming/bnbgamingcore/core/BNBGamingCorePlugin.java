@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.bloodnbonesgaming.bnbgamingcore.ModBNBGamingCore;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.IClassTransformerModule;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.BNBCoreModEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.BNBGamingClassTransformer;
@@ -53,7 +54,7 @@ public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 
 	@Override
 	public String getModContainerClass() {
-		return null;
+		return ModBNBGamingCore.class.getName();
 	}
 
 	@Override
