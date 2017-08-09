@@ -25,6 +25,11 @@ public class MapGenEvent extends Event {
 		return this.mapGen;
 	}
 	
+	@Override
+	public boolean isCancelable() {
+		return true;
+	}
+	
 	public static class Generate extends MapGenEvent {
 
 		public Generate(final MapGenBase mapGen, World world) {

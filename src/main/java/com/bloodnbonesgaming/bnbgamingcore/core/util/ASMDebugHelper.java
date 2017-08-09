@@ -4,9 +4,14 @@ import com.bloodnbonesgaming.bnbgamingcore.core.BNBGamingCorePlugin;
 
 public class ASMDebugHelper {
 	
-	public static void logTransforming(final String methodName, final String className)
+	public static void logAttemptingTransform(final String methodName, final String className)
 	{
-		BNBGamingCorePlugin.log.debug("Transforming method " + methodName + " in class " + className);
+		BNBGamingCorePlugin.log.debug("Attempting to transform method " + methodName + " in class " + className);
+	}
+	
+	public static void logSuccessfulTransform(final String methodName, final String className)
+	{
+		BNBGamingCorePlugin.log.debug("Successfully transformed method " + methodName + " in class " + className);
 	}
 	
 	public static void logNotFound(final String methodName, final String className)

@@ -5,12 +5,14 @@ import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 
+import lombok.RequiredArgsConstructor;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ASMHelper;
 
 public final class ObfNameHelper {
 
+	@RequiredArgsConstructor
 	public static enum Classes{
 
 		MAPGENBASE("net.minecraft.world.gen.MapGenBase"),
@@ -23,11 +25,6 @@ public final class ObfNameHelper {
 		ASMADDITIONHELPER("com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper");
 		
 		private final String name;
-		
-		Classes(final String name)
-		{
-			this.name = name;
-		}
 
 		public String getInternalName(){
 			return ASMHelper.toInternalClassName(this.name);

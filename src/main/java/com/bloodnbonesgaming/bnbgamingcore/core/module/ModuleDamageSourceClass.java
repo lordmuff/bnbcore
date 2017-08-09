@@ -44,10 +44,12 @@ public class ModuleDamageSourceClass implements IClassTransformerModule
 
 		if (method != null)
 		{
-			ASMDebugHelper.logTransforming(methodName, transformedName);
+			ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
 			
 			if (this.injectListCall(method, transformedName))
 			{
+				ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
+				
 				return ASMHelper.writeClassToBytes(classNode);
 			}
 		}

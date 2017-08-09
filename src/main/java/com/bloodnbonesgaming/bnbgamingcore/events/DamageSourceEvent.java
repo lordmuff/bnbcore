@@ -17,6 +17,11 @@ public class DamageSourceEvent extends Event{
 		return this.source;
 	}
 	
+	@Override
+	public boolean isCancelable() {
+		return false;
+	}
+	
 	public static class Init extends DamageSourceEvent{
 
 		protected Init(DamageSource source) {

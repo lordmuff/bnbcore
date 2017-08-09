@@ -25,6 +25,11 @@ public class MapGenStructureEvent extends Event {
 		return this.structure;
 	}
 	
+	@Override
+	public boolean isCancelable() {
+		return true;
+	}
+	
 	public static class GenerateStructure extends MapGenStructureEvent {
 
 		public GenerateStructure(World world, MapGenStructure structure) {

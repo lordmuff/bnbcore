@@ -7,7 +7,6 @@ import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
 import org.objectweb.asm.tree.LabelNode;
-import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
@@ -30,10 +29,11 @@ public class ModuleMapGenBaseClass implements IClassTransformerModule
 
 		if (method != null)
 		{
-			ASMDebugHelper.logTransforming(methodName, transformedName);
+			ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
 			
 			if (this.injectDisableHook(method, transformedName))
 			{
+				ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
 				return ASMHelper.writeClassToBytes(classNode);
 			}
 		}

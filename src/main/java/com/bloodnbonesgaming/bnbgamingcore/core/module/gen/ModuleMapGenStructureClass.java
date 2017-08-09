@@ -33,8 +33,13 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
-				modified = modified || this.injectGenerateStructureDisableHook(method, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
+				
+				if (this.injectGenerateStructureDisableHook(method, transformedName))
+				{
+					modified = true;
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
+				}
 			}
 			else
 			{
@@ -47,8 +52,13 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 			
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
-				modified = modified || this.injectisInsideStructureDisableHook(method, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
+				
+				if (this.injectisInsideStructureDisableHook(method, transformedName))
+				{
+					modified = true;
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
+				}
 			}
 			else
 			{
@@ -61,8 +71,13 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 			
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
-				modified = modified || this.injectIsPositionInStructureDisableHook(method, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
+				
+				if (this.injectIsPositionInStructureDisableHook(method, transformedName))
+				{
+					modified = true;
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
+				}
 			}
 			else
 			{
@@ -75,8 +90,13 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 			
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
-				modified = modified || this.injectGetClosestStrongholdPosDisableHook(method, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
+				
+				if (this.injectGetClosestStrongholdPosDisableHook(method, transformedName))
+				{
+					modified = true;
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
+				}
 			}
 			else
 			{

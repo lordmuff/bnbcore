@@ -23,6 +23,11 @@ public class OnItemRightClickEvent extends Event {
 		this.hand = hand;
 		this.result = EnumActionResult.FAIL;
 	}
+	
+	@Override
+	public boolean isCancelable() {
+		return true;
+	}
 
 	public EnumActionResult getEnumResult() {
 		return this.result;

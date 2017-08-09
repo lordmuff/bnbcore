@@ -5,9 +5,6 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.JumpInsnNode;
-import org.objectweb.asm.tree.LabelNode;
-import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
@@ -33,10 +30,11 @@ public class ModuleRegisterWorldEvent implements IClassTransformerModule
 
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
 				
 				if (this.addRegisterWorldPostHook(method, transformedName) && this.addRegisterWorldPreHook(method, transformedName))
 				{
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
 					return ASMHelper.writeClassToBytes(classNode);
 				}
 			}
@@ -102,13 +100,6 @@ public class ModuleRegisterWorldEvent implements IClassTransformerModule
 		toInject.add(new VarInsnNode(Opcodes.ALOAD, 0));
 		toInject.add(new VarInsnNode(Opcodes.ALOAD, 1));
 		toInject.add(ObfNameHelper.Methods.ONREGISTERWORLDPRE.toInsnNode(Opcodes.INVOKESTATIC));
-		//Check hook return value
-		final LabelNode label = new LabelNode();
-		toInject.add(new JumpInsnNode(Opcodes.IFEQ, label));
-		//If true, return
-		toInject.add(new InsnNode(Opcodes.RETURN));
-		//If false, continue
-		toInject.add(label);
 
 		method.instructions.insertBefore(target, toInject);
 		return true;

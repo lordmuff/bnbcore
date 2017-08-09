@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.bloodnbonesgaming.bnbgamingcore.core.BNBGamingCorePlugin;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.IClassTransformerModule;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.ModulePerformAdditions;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionRegistry.ASMAdditionRegistryWrapper;
@@ -53,7 +54,6 @@ public abstract class BNBGamingClassTransformer implements IClassTransformer{
 
 	public static void disableTransformerModule(final String name)
 	{
-		final IClassTransformerModule moduleToRemove = null;
 		for(final List<IClassTransformerModule> list:BNBGamingClassTransformer.transformerModules.values()){
 			final Iterator<IClassTransformerModule> it = list.iterator();
 			while(it.hasNext()){
@@ -71,6 +71,7 @@ public abstract class BNBGamingClassTransformer implements IClassTransformer{
 			while(it.hasNext()){
 				final IClassTransformerModule module = it.next();
 				if (module.canBeDisabled() && !names.contains(module.getModuleName())) {
+					BNBGamingCorePlugin.log.debug("Disabled ASM module "+module.getModuleName());
 					it.remove();
 				}
 			}

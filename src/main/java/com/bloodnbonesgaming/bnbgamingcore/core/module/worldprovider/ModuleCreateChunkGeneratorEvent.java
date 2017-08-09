@@ -30,10 +30,11 @@ public class ModuleCreateChunkGeneratorEvent implements IClassTransformerModule
 
 			if (method != null)
 			{
-				ASMDebugHelper.logTransforming(methodName, transformedName);
+				ASMDebugHelper.logAttemptingTransform(methodName, transformedName);
 				
 				if (this.addCreateChunkGeneratorHook(method, transformedName))
 				{
+					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
 					return ASMHelper.writeClassToBytes(classNode);
 				}
 			}
