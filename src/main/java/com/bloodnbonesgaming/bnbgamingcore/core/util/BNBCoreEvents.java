@@ -1,10 +1,10 @@
 package com.bloodnbonesgaming.bnbgamingcore.core.util;
 
+import java.util.Arrays;
 import java.util.List;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import scala.actors.threadpool.Arrays;
 
 @RequiredArgsConstructor
 public enum BNBCoreEvents {

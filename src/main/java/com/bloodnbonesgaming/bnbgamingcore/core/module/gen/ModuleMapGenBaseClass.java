@@ -3,6 +3,7 @@ package com.bloodnbonesgaming.bnbgamingcore.core.module.gen;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
@@ -84,6 +85,7 @@ public class ModuleMapGenBaseClass implements IClassTransformerModule
 		final LabelNode label = new LabelNode();
 		toInject.add(new JumpInsnNode(Opcodes.IFEQ, label));
 		toInject.add(new InsnNode(Opcodes.RETURN));
+		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 		toInject.add(label);
 		
 		method.instructions.insertBefore(target, toInject);

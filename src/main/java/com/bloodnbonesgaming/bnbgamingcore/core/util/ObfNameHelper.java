@@ -39,7 +39,7 @@ public final class ObfNameHelper {
 	public enum Methods{
 
 		GENERATE(Classes.MAPGENBASE, "func_186125_a", "(Lnet/minecraft/world/World;IILnet/minecraft/world/chunk/ChunkPrimer;)V", false),
-		CREATECHUNKGENERATOR(Classes.WORLDPROVIDER, "func_186060_c", "()Lnet/minecraft/world/chunk/IChunkGenerator;", false),
+		CREATECHUNKGENERATOR(Classes.WORLDPROVIDER, "func_186060_c", "()Lnet/minecraft/world/gen/IChunkGenerator;", false),
 		SETWORLD(Classes.WORLDPROVIDER, "func_76558_a", "(Lnet/minecraft/world/World;)V", false),
 		GENERATESTRUCTURE(Classes.MAPGENSTRUCTURE, "func_175794_a", "(Lnet/minecraft/world/World;Ljava/util/Random;Lnet/minecraft/util/math/ChunkPos;)Z", false),
 		ISINSIDESTRUCTURE(Classes.MAPGENSTRUCTURE, "func_175795_b", "(Lnet/minecraft/util/math/BlockPos;)Z", false),
@@ -50,7 +50,7 @@ public final class ObfNameHelper {
 		ONGENERATESTRUCTURE(Classes.BNBEVENTFACTORY, "onStructureGenerate", "(Lnet/minecraft/world/gen/structure/MapGenStructure;Lnet/minecraft/world/World;)Z", false),
 		ONISPOSITIONINSTRUCTURE(Classes.BNBEVENTFACTORY, "onIsPositionInStructure", "(Lnet/minecraft/world/gen/structure/MapGenStructure;Lnet/minecraft/world/World;)Z", false),
 		ONGETCLOSESTSTRONGHOLDPOS(Classes.BNBEVENTFACTORY, "onGetClosestStrongholdPos", "(Lnet/minecraft/world/gen/structure/MapGenStructure;Lnet/minecraft/world/World;)Z", false),
-		ONCREATECHUNKGENERATOR(Classes.BNBEVENTFACTORY, "onCreateChunkGenerator", "(Lnet/minecraft/world/chunk/IChunkGenerator;Lnet/minecraft/world/WorldProvider;)Lnet/minecraft/world/chunk/IChunkGenerator;", false),
+		ONCREATECHUNKGENERATOR(Classes.BNBEVENTFACTORY, "onCreateChunkGenerator", "(Lnet/minecraft/world/gen/IChunkGenerator;Lnet/minecraft/world/WorldProvider;)Lnet/minecraft/world/gen/IChunkGenerator;", false),
 		ONREGISTERWORLDPRE(Classes.BNBEVENTFACTORY, "onRegisterWorldPre", "(Lnet/minecraft/world/WorldProvider;Lnet/minecraft/world/World;)V", false),
 		ONREGISTERWORLDPOST(Classes.BNBEVENTFACTORY, "onRegisterWorldPost", "(Lnet/minecraft/world/WorldProvider;)V", false),
 		ONINITDAMAGESOURCE(Classes.BNBEVENTFACTORY, "onInitDamageSource", "(Lnet/minecraft/util/DamageSource;)V", false),

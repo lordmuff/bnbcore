@@ -3,6 +3,7 @@ package com.bloodnbonesgaming.bnbgamingcore.core.module.gen;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
@@ -153,6 +154,7 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 		toInject.add(new InsnNode(Opcodes.ICONST_0));
 		toInject.add(new InsnNode(Opcodes.IRETURN));
 		toInject.add(label);
+		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 		
 		method.instructions.insertBefore(target, toInject);
 		return true;
@@ -177,6 +179,7 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 		toInject.add(new InsnNode(Opcodes.ICONST_0));
 		toInject.add(new InsnNode(Opcodes.IRETURN));
 		toInject.add(label);
+		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 		
 		method.instructions.insertBefore(target, toInject);
 		return true;
@@ -201,6 +204,7 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 		toInject.add(new InsnNode(Opcodes.ICONST_0));
 		toInject.add(new InsnNode(Opcodes.IRETURN));
 		toInject.add(label);
+		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 		
 		method.instructions.insertBefore(target, toInject);
 		return true;
@@ -225,6 +229,7 @@ public class ModuleMapGenStructureClass implements IClassTransformerModule
 		toInject.add(new InsnNode(Opcodes.ACONST_NULL));
 		toInject.add(new InsnNode(Opcodes.ARETURN));
 		toInject.add(label);
+		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 		
 		method.instructions.insertBefore(target, toInject);
 		return true;

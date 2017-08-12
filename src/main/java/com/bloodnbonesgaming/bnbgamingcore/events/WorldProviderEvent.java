@@ -2,7 +2,7 @@ package com.bloodnbonesgaming.bnbgamingcore.events;
 
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class WorldProviderEvent extends Event {
