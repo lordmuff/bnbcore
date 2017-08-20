@@ -1,10 +1,15 @@
 package com.bloodnbonesgaming.bnbgamingcore.events;
 
+import java.util.Map;
+
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -71,5 +76,15 @@ public class BNBEventFactory {
 			return new ActionResult<ItemStack>(event.getEnumResult(), itemStack);
 		}
 		return itemStack.getItem().onItemRightClick(world, player, hand);
+	}
+	
+	public static void onAdvancementBuildPre(final Map<ResourceLocation, Advancement.Builder> advancementMap)
+	{
+		MinecraftForge.EVENT_BUS.post(new AdvancementBuildEvent.Pre(advancementMap));
+	}
+	
+	public static void onAdvancementBuildPost(final AdvancementList advancementList)
+	{
+		MinecraftForge.EVENT_BUS.post(new AdvancementBuildEvent.Post(advancementList));
 	}
 }

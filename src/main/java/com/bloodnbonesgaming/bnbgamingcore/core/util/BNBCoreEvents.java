@@ -23,7 +23,10 @@ public enum BNBCoreEvents {
 	WORLDPROVIDEREVENT_CREATECHUNKGENERATOR("WorldProviderEvent$CreateChunkGenerator", new String[]{"createChunkGeneratorEvent"}),
 	WORLDPROVIDEREVENT_REGISTERWORLD("WorldProviderEvent$RegisterWorld", new String[]{"registerWorldEvent"}),
 	WORLDPROVIDEREVENT_REGISTERWORLD_PRE("WorldProviderEvent$RegisterWorld$Pre", new String[]{"registerWorldEvent"}),
-	WORLDPROVIDEREVENT_REGISTERWORLD_POST("WorldProviderEvent$RegisterWorld$Post", new String[]{"registerWorldEvent"});
+	WORLDPROVIDEREVENT_REGISTERWORLD_POST("WorldProviderEvent$RegisterWorld$Post", new String[]{"registerWorldEvent"}),
+	ADVANCEMENTBUILDEVENT("AdvancementBuildEvent", new String[]{"advancementBuildEventPre", "advancementBuildEventPost"}),
+	ADVANCEMENTBUILDEVENT_PRE("AdvancementBuildEvent$Pre", new String[]{"advancementBuildEventPre"}),
+	ADVANCEMENTBUILDEVENT_POST("AdvancementBuildEvent$Post", new String[]{"advancementBuildEventPost"});
 	
 	
 	@Getter

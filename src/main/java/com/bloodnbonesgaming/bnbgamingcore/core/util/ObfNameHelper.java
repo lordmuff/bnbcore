@@ -22,7 +22,9 @@ public final class ObfNameHelper {
 		DAMAGESOURCE("net.minecraft.util.DamageSource"),
 		ITEMSTACK("net.minecraft.item.ItemStack"),
 		ITEM("net.minecraft.item.Item"),
-		ASMADDITIONHELPER("com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper");
+		ASMADDITIONHELPER("com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper"),
+		ADVANCEMENTMANAGER("net.minecraft.advancements.AdvancementManager"),
+		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList");
 		
 		private final String name;
 
@@ -57,7 +59,11 @@ public final class ObfNameHelper {
 		ONUSEITEMRIGHTCLICK(Classes.BNBEVENTFACTORY, "onUseItemRightClick", "(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/ActionResult;", false),
 		DAMAGESOURCE_INIT(Classes.DAMAGESOURCE, "<init>", "(Ljava/lang/String;)V", false),
 		USEITEMRIGHTCLICK(Classes.ITEMSTACK, "func_77957_a", "(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/ActionResult;", false),
-		ONITEMRIGHTCLICK(Classes.ITEM, "func_77659_a", "(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/ActionResult;", false);
+		ONITEMRIGHTCLICK(Classes.ITEM, "func_77659_a", "(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/ActionResult;", false),
+		ADVANCEMENTMANAGERRELOAD(Classes.ADVANCEMENTMANAGER, "func_192779_a", "()V", false),
+		LOADADVANCEMENTS(Classes.ADVANCEMENTLIST, "func_192083_a", "(Ljava/util/Map;)V", false),
+		ONADVANCEMENTBUILDPRE(Classes.BNBEVENTFACTORY, "onAdvancementBuildPre", "(Ljava/util/Map;)V", false),
+		ONADVANCEMENTBUILDPOST(Classes.BNBEVENTFACTORY, "onAdvancementBuildPost", "(Lnet/minecraft/advancements/AdvancementList;)V", false);
 
 		private final Classes clazz;
 		private final String name;
@@ -121,7 +127,8 @@ public final class ObfNameHelper {
 		ENABLESNOW(Classes.BIOME, "field_76766_R", "Z"),
 		ENABLERAIN(Classes.BIOME, "field_76765_S", "Z")*/
 		
-		MAPGENSTRUCTURE_WORLD(Classes.MAPGENSTRUCTURE, "field_75039_c", "Lnet/minecraft/world/World;");
+		MAPGENSTRUCTURE_WORLD(Classes.MAPGENSTRUCTURE, "field_75039_c", "Lnet/minecraft/world/World;"),
+		ADVANCEMENTMANAGER_ADVANCEMENTLIST(Classes.ADVANCEMENTMANAGER, "field_192784_c", "Lnet/minecraft/advancements/AdvancementList;");
 
 		private final Classes clazz;
 		private final String name;
