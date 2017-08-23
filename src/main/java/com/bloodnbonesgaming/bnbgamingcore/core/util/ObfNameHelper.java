@@ -24,7 +24,8 @@ public final class ObfNameHelper {
 		ITEM("net.minecraft.item.Item"),
 		ASMADDITIONHELPER("com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper"),
 		ADVANCEMENTMANAGER("net.minecraft.advancements.AdvancementManager"),
-		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList");
+		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList"),
+		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager");
 		
 		private final String name;
 
@@ -63,7 +64,10 @@ public final class ObfNameHelper {
 		ADVANCEMENTMANAGERRELOAD(Classes.ADVANCEMENTMANAGER, "func_192779_a", "()V", false),
 		LOADADVANCEMENTS(Classes.ADVANCEMENTLIST, "func_192083_a", "(Ljava/util/Map;)V", false),
 		ONADVANCEMENTBUILDPRE(Classes.BNBEVENTFACTORY, "onAdvancementBuildPre", "(Ljava/util/Map;)V", false),
-		ONADVANCEMENTBUILDPOST(Classes.BNBEVENTFACTORY, "onAdvancementBuildPost", "(Lnet/minecraft/advancements/AdvancementList;)V", false);
+		ONADVANCEMENTBUILDPOST(Classes.BNBEVENTFACTORY, "onAdvancementBuildPost", "(Lnet/minecraft/advancements/AdvancementList;)V", false),
+		FUNCTION_MANAGER_RELOAD(Classes.FUNCTIONMANAGER, "func_193059_f", "()V", false),
+		LOAD_FUNCTIONS(Classes.FUNCTIONMANAGER, "func_193061_h", "()V", false),
+		ON_FUNCTION_RELOAD_POST(Classes.BNBEVENTFACTORY, "onFunctionReloadPost", "(Lnet/minecraft/advancements/FunctionManager;)V", false);
 
 		private final Classes clazz;
 		private final String name;

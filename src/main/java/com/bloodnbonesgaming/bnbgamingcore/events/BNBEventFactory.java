@@ -4,6 +4,7 @@ import java.util.Map;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
+import net.minecraft.advancements.FunctionManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -86,5 +87,10 @@ public class BNBEventFactory {
 	public static void onAdvancementBuildPost(final AdvancementList advancementList)
 	{
 		MinecraftForge.EVENT_BUS.post(new AdvancementBuildEvent.Post(advancementList));
+	}
+	
+	public static void onFunctionReloadPost(final FunctionManager manager)
+	{
+		MinecraftForge.EVENT_BUS.post(new FunctionReloadEvent.Post(manager));
 	}
 }
