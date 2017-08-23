@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ObfHelper;
 
 @Name("BNBGamingCore")
-@MCVersion("1.12")
+@MCVersion("1.12.1")
 @SortingIndex(1001)
 @TransformerExclusions({"com.bloodnbonesgaming.bnbgamingcore.core", "squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore"})
 public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
