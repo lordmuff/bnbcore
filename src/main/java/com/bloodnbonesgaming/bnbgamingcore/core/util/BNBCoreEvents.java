@@ -26,7 +26,9 @@ public enum BNBCoreEvents {
 	WORLDPROVIDEREVENT_REGISTERWORLD_POST("WorldProviderEvent$RegisterWorld$Post", new String[]{"registerWorldEvent"}),
 	ADVANCEMENTBUILDEVENT("AdvancementBuildEvent", new String[]{"advancementBuildEventPre", "advancementBuildEventPost"}),
 	ADVANCEMENTBUILDEVENT_PRE("AdvancementBuildEvent$Pre", new String[]{"advancementBuildEventPre"}),
-	ADVANCEMENTBUILDEVENT_POST("AdvancementBuildEvent$Post", new String[]{"advancementBuildEventPost"});
+	ADVANCEMENTBUILDEVENT_POST("AdvancementBuildEvent$Post", new String[]{"advancementBuildEventPost"}),
+	FUNCTION_RELOAD_EVENT("FunctionReloadEvent", new String[]{"functionReloadEventPost"}),
+	FUNCTION_RELOAD_EVENT_POST("FunctionReloadEvent$Post", new String[]{"functionReloadEventPost"});
 	
 	
 	@Getter
