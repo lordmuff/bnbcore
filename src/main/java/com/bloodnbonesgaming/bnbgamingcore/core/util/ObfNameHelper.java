@@ -25,7 +25,8 @@ public final class ObfNameHelper {
 		ASMADDITIONHELPER("com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper"),
 		ADVANCEMENTMANAGER("net.minecraft.advancements.AdvancementManager"),
 		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList"),
-		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager");
+		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager"),
+		PLAYER_ADVANCEMENTS("net.minecraft.advancements.PlayerAdvancements");
 		
 		private final String name;
 
@@ -67,7 +68,9 @@ public final class ObfNameHelper {
 		ONADVANCEMENTBUILDPOST(Classes.BNBEVENTFACTORY, "onAdvancementBuildPost", "(Lnet/minecraft/advancements/AdvancementList;)V", false),
 		FUNCTION_MANAGER_RELOAD(Classes.FUNCTIONMANAGER, "func_193059_f", "()V", false),
 		LOAD_FUNCTIONS(Classes.FUNCTIONMANAGER, "func_193061_h", "()V", false),
-		ON_FUNCTION_RELOAD_POST(Classes.BNBEVENTFACTORY, "onFunctionReloadPost", "(Lnet/minecraft/advancements/FunctionManager;)V", false);
+		ON_FUNCTION_RELOAD_POST(Classes.BNBEVENTFACTORY, "onFunctionReloadPost", "(Lnet/minecraft/advancements/FunctionManager;)V", false),
+		GRANT_CRITERION(Classes.PLAYER_ADVANCEMENTS, "func_192750_a", "(Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false),
+		ON_ADVANCEMENT_CRITERION_COMPLETED(Classes.BNBEVENTFACTORY, "onAdvancementCriterionCompleted", "(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/AdvancementProgress;Ljava/lang/String;)V", false);
 
 		private final Classes clazz;
 		private final String name;
@@ -132,7 +135,8 @@ public final class ObfNameHelper {
 		ENABLERAIN(Classes.BIOME, "field_76765_S", "Z")*/
 		
 		MAPGENSTRUCTURE_WORLD(Classes.MAPGENSTRUCTURE, "field_75039_c", "Lnet/minecraft/world/World;"),
-		ADVANCEMENTMANAGER_ADVANCEMENTLIST(Classes.ADVANCEMENTMANAGER, "field_192784_c", "Lnet/minecraft/advancements/AdvancementList;");
+		ADVANCEMENTMANAGER_ADVANCEMENTLIST(Classes.ADVANCEMENTMANAGER, "field_192784_c", "Lnet/minecraft/advancements/AdvancementList;"),
+		PLAYER_ADVANCEMENTS_PLAYER(Classes.PLAYER_ADVANCEMENTS, "field_192762_j", "Lnet/minecraft/entity/player/EntityPlayerMP;");
 
 		private final Classes clazz;
 		private final String name;
