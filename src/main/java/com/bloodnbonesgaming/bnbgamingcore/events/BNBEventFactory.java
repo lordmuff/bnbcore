@@ -4,8 +4,10 @@ import java.util.Map;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
+import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.FunctionManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
@@ -92,5 +94,10 @@ public class BNBEventFactory {
 	public static void onFunctionReloadPost(final FunctionManager manager)
 	{
 		MinecraftForge.EVENT_BUS.post(new FunctionReloadEvent.Post(manager));
+	}
+	
+	public static void onAdvancementCriterionCompleted(final EntityPlayerMP player, final Advancement advancement, final AdvancementProgress progress, final String criterion)
+	{
+		MinecraftForge.EVENT_BUS.post(new AdvancementCriterionCompletedEvent(player, advancement, progress, criterion));
 	}
 }

@@ -28,7 +28,8 @@ public enum BNBCoreEvents {
 	ADVANCEMENTBUILDEVENT_PRE("AdvancementBuildEvent$Pre", new String[]{"advancementBuildEventPre"}),
 	ADVANCEMENTBUILDEVENT_POST("AdvancementBuildEvent$Post", new String[]{"advancementBuildEventPost"}),
 	FUNCTION_RELOAD_EVENT("FunctionReloadEvent", new String[]{"functionReloadEventPost"}),
-	FUNCTION_RELOAD_EVENT_POST("FunctionReloadEvent$Post", new String[]{"functionReloadEventPost"});
+	FUNCTION_RELOAD_EVENT_POST("FunctionReloadEvent$Post", new String[]{"functionReloadEventPost"}),
+	ADVANCEMENT_CRITERION_COMPLETED_EVENT("AdvancementCriterionCompletedEvent", new String[]{"advancementCriterionCompletedEvent"});
 	
 	
 	@Getter
