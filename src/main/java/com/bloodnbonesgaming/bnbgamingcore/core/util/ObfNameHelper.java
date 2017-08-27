@@ -70,7 +70,7 @@ public final class ObfNameHelper {
 		LOAD_FUNCTIONS(Classes.FUNCTIONMANAGER, "func_193061_h", "()V", false),
 		ON_FUNCTION_RELOAD_POST(Classes.BNBEVENTFACTORY, "onFunctionReloadPost", "(Lnet/minecraft/advancements/FunctionManager;)V", false),
 		GRANT_CRITERION(Classes.PLAYER_ADVANCEMENTS, "func_192750_a", "(Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false),
-		ON_ADVANCEMENT_CRITERION_COMPLETED(Classes.BNBEVENTFACTORY, "onAdvancementCriterionCompleted", "(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/AdvancementProgress;Ljava/lang/String;)V", false);
+		ON_ADVANCEMENT_CRITERION_COMPLETED(Classes.BNBEVENTFACTORY, "onAdvancementCriterionCompleted", "(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/AdvancementProgress;)V", false);
 
 		private final Classes clazz;
 		private final String name;

@@ -10,14 +10,12 @@ public class AdvancementCriterionCompletedEvent extends Event{
 	private final EntityPlayerMP player;
 	private final Advancement advancement;
 	private final AdvancementProgress progress;
-	private final String criterion;
 	
-	public AdvancementCriterionCompletedEvent(final EntityPlayerMP player, final Advancement advancement, final AdvancementProgress progress, final String criterion)
+	public AdvancementCriterionCompletedEvent(final EntityPlayerMP player, final Advancement advancement, final AdvancementProgress progress)
 	{
 		this.player = player;
 		this.advancement = advancement;
 		this.progress = progress;
-		this.criterion = criterion;
 	}
 	
 	public EntityPlayerMP getPlayer()
@@ -33,10 +31,5 @@ public class AdvancementCriterionCompletedEvent extends Event{
 	public AdvancementProgress getAdvancementProgress()
 	{
 		return this.progress;
-	}
-	
-	public String getCriterion()
-	{
-		return this.criterion;
 	}
 }
