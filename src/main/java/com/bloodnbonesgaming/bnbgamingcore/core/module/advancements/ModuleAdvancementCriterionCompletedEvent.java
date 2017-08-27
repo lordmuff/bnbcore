@@ -3,7 +3,6 @@ package com.bloodnbonesgaming.bnbgamingcore.core.module.advancements;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
@@ -38,7 +37,7 @@ public class ModuleAdvancementCriterionCompletedEvent implements IClassTransform
 				if (this.addAdvancementCriterionCompletedEventHook(method, transformedName))
 				{
 					ASMDebugHelper.logSuccessfulTransform(methodName, transformedName);
-					return ASMHelper.writeClassToBytes(classNode);
+					return ASMHelper.writeClassToBytes(classNode, 3);
 				}
 			}
 			else
@@ -89,7 +88,8 @@ public class ModuleAdvancementCriterionCompletedEvent implements IClassTransform
 			return false;
 		}
 		final InsnList toInject = new InsnList();
-		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
+//		toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
+//		toInject.add(new FrameNode(Opcodes.F_FULL, 5, new Object[]{"net/minecraft/advancements/Advancement", "java/lang/String", Opcodes.INTEGER, "net/minecraft/advancements/AdvancementProgress", Opcodes.INTEGER}, 0, null));
 		
 		toInject.add(new VarInsnNode(Opcodes.ILOAD, 5));
 		final LabelNode label = new LabelNode();
@@ -98,11 +98,12 @@ public class ModuleAdvancementCriterionCompletedEvent implements IClassTransform
 		toInject.add(new VarInsnNode(Opcodes.ILOAD, 3));
 		toInject.add(new JumpInsnNode(Opcodes.IFEQ, label));
 		
+		toInject.add(new LabelNode());
+		
 		toInject.add(new VarInsnNode(Opcodes.ALOAD, 0));
 		toInject.add(ObfNameHelper.Fields.PLAYER_ADVANCEMENTS_PLAYER.toInsnNode(Opcodes.GETFIELD));
 		toInject.add(new VarInsnNode(Opcodes.ALOAD, 1));
 		toInject.add(new VarInsnNode(Opcodes.ALOAD, 4));
-		toInject.add(new VarInsnNode(Opcodes.ALOAD, 2));
 		toInject.add(ObfNameHelper.Methods.ON_ADVANCEMENT_CRITERION_COMPLETED.toInsnNode(Opcodes.INVOKESTATIC));
 		
 		toInject.add(label);

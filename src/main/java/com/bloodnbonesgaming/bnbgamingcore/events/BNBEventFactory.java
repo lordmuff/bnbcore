@@ -96,8 +96,8 @@ public class BNBEventFactory {
 		MinecraftForge.EVENT_BUS.post(new FunctionReloadEvent.Post(manager));
 	}
 	
-	public static void onAdvancementCriterionCompleted(final EntityPlayerMP player, final Advancement advancement, final AdvancementProgress progress, final String criterion)
+	public static void onAdvancementCriterionCompleted(final EntityPlayerMP player, final Advancement advancement, final AdvancementProgress progress)
 	{
-		MinecraftForge.EVENT_BUS.post(new AdvancementCriterionCompletedEvent(player, advancement, progress, criterion));
+		MinecraftForge.EVENT_BUS.post(new AdvancementCriterionCompletedEvent(player, advancement, progress));
 	}
 }
