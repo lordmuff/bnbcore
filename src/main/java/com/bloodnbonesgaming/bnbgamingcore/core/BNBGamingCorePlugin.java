@@ -15,21 +15,21 @@ import com.bloodnbonesgaming.bnbgamingcore.core.util.ModuleDisableHandler;
 import com.bloodnbonesgaming.bnbgamingcore.util.ReflectionHelper;
 
 import lombok.Getter;
+import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
-import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.Name;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ObfHelper;
 
 @Name("BNBGamingCore")
-@MCVersion("1.12")
 @SortingIndex(1001)
 @TransformerExclusions({"com.bloodnbonesgaming.bnbgamingcore.core", "squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore"})
 public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 
 	public static final Logger log = LogManager.getLogger(ModInfo.MOD_NAME);
 	private static BNBGamingCorePlugin INSTANCE;
+	private static String[] acceptableMinecraftVersions = new String[]{"1.12,"};
 	/**
 	 * The EventBus on which CoreModEvents are distributed. You should register your listeners when your IFMLLoadingPlugin is instantiated.
 	 */
@@ -45,12 +45,34 @@ public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 
 	@Override
 	public String[] getASMTransformerClass() {
-		return new String[] {BNBGamingCoreClassTransformer.class.getName()};
+		String versions = "";
+		for (int i = 0; i < BNBGamingCorePlugin.acceptableMinecraftVersions.length; i++)
+		{
+			versions = versions.concat(BNBGamingCorePlugin.acceptableMinecraftVersions[i] + " ");
+		}
+		
+		if (BNBGamingCorePlugin.isMinecraftVersionAcceptable())
+		{			
+			BNBGamingCorePlugin.log.debug("Minecraft version is " + ForgeVersion.mcVersion + " and BNBGamingCore accepts versions " + versions + ". It will be registered.");
+			return new String[] {BNBGamingCoreClassTransformer.class.getName()};
+		}
+		else
+		{
+			BNBGamingCorePlugin.log.error("Minecraft version is " + ForgeVersion.mcVersion + " and BNBGamingCore accepts versions " + versions + ". It will not be registered.");
+			return null;
+		}
 	}
 
 	@Override
 	public String getModContainerClass() {
-		return ModBNBGamingCore.class.getName();
+		if (BNBGamingCorePlugin.isMinecraftVersionAcceptable())
+		{
+			return ModBNBGamingCore.class.getName();
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	@Override
@@ -60,9 +82,12 @@ public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 
 	@Override
 	public void injectData(final Map<String, Object> data) {
-		ObfHelper.setObfuscated((Boolean) data.get("runtimeDeobfuscationEnabled"));
-		this.mcLocation = (File) data.get("mcLocation");
-		this.init();
+		if (BNBGamingCorePlugin.isMinecraftVersionAcceptable())
+		{
+			ObfHelper.setObfuscated((Boolean) data.get("runtimeDeobfuscationEnabled"));
+			this.mcLocation = (File) data.get("mcLocation");
+			this.init();
+		}
 	}
 
 	@Override
@@ -87,6 +112,20 @@ public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 			throw new IllegalStateException("BNBGamingCore has not been instantiated yet! The method "+st.getClassName()+"."+st.getMethodName()+" needs to fix its load order!");
 		}
 		return BNBGamingCorePlugin.INSTANCE;
+	}
+	
+	public static boolean isMinecraftVersionAcceptable()
+	{
+		for (int i = 0; i < BNBGamingCorePlugin.acceptableMinecraftVersions.length; i++)
+		{
+			if (ForgeVersion.mcVersion.equals(BNBGamingCorePlugin.acceptableMinecraftVersions[i])
+					|| (BNBGamingCorePlugin.acceptableMinecraftVersions[i].endsWith(",")
+							&& ForgeVersion.mcVersion.startsWith(BNBGamingCorePlugin.acceptableMinecraftVersions[i].substring(0, BNBGamingCorePlugin.acceptableMinecraftVersions[i].length() - 1))))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
