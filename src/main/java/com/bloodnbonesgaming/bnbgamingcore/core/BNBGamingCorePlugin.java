@@ -53,7 +53,7 @@ public class BNBGamingCorePlugin implements IFMLLoadingPlugin{
 		
 		if (BNBGamingCorePlugin.isMinecraftVersionAcceptable())
 		{			
-			BNBGamingCorePlugin.log.debug("Minecraft version is " + ForgeVersion.mcVersion + " and BNBGamingCore accepts versions " + versions + ". It will be registered.");
+			BNBGamingCorePlugin.log.info("Minecraft version is " + ForgeVersion.mcVersion + " and BNBGamingCore accepts versions " + versions + ". It will be registered.");
 			return new String[] {BNBGamingCoreClassTransformer.class.getName()};
 		}
 		else
