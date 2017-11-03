@@ -73,7 +73,7 @@ public class ModuleAdvancementCriterionCompletedEvent implements IClassTransform
 
 	private boolean addAdvancementCriterionCompletedEventHook(final MethodNode method, final String transformedName)
 	{
-		AbstractInsnNode target = ASMHelper.find(method.instructions, new InsnNode(Opcodes.IRETURN));
+		AbstractInsnNode target = ASMHelper.findLastInstructionWithOpcode(method, Opcodes.IRETURN);
 		
 		if (target == null)
 		{
