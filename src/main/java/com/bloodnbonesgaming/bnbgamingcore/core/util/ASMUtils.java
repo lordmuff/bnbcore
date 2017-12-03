@@ -3,14 +3,18 @@ package com.bloodnbonesgaming.bnbgamingcore.core.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
+import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.LabelNode;
 import org.objectweb.asm.tree.MethodNode;
 
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ASMHelper;
@@ -20,14 +24,7 @@ public class ASMUtils {
 	
 	public static boolean doesClassEqualOrExtend(final String className, final ObfNameHelper.Classes clazz, final byte[] basicClass)
 	{
-		return ASMUtils.doesClassEqual(className, clazz) || ASMUtils.doesClassExtend(className, clazz, basicClass);
-	}
-	
-	public static boolean doesClassExtend(final String className, final ObfNameHelper.Classes clazz, final byte[] basicClass)
-	{
-		final ClassReader classReader = new ClassReader(basicClass);
-		
-		return ASMUtils.doesClassExtend(classReader, clazz.getInternalName());
+		return ASMUtils.doesClassEqual(className, clazz) || ClassExtensionHelper.doesClassExtend(className, clazz.getInternalName(), basicClass);
 	}
 	
 	public static boolean doesClassEqual(final String className, final ObfNameHelper.Classes clazz)
@@ -132,44 +129,6 @@ public class ASMUtils {
 		return true;
 	}
 
-	//ASMHelper non-obf class extends methods
-	public static boolean doesClassExtend(final ClassReader classReader, final String targetSuperInternalClassName)
-	{
-		if (classReader != null)
-		{
-			if (!ASMHelper.classHasSuper(classReader))
-			{
-				return false;
-			}
-
-			String immediateSuperName = classReader.getSuperName();
-
-			//Effectively check if the class name is obfuscated
-			if (targetSuperInternalClassName.contains("/") && !immediateSuperName.contains("/"))
-			{
-				//TODO make our own method for this, which doesnt mess up the char replacement
-				immediateSuperName = ObfHelper.forceToDeobfClassName(immediateSuperName).replace(".", "/");
-			}
-
-			if (immediateSuperName.equals(targetSuperInternalClassName))
-			{
-				return true;
-			}
-
-			try
-			{
-				return ASMUtils.doesClassExtend(ASMHelper.getClassReaderForClassName(ObfHelper.getInternalClassName(immediateSuperName)), targetSuperInternalClassName);
-			}
-			catch (final IOException e)
-			{
-				//DCCore.log.error("raw = " + classReader.getSuperName() + ", obf = " + immediateSuperName, e);
-				//e.printStackTrace();
-				//throw new RuntimeException("raw = " + classReader.getSuperName() + ", obf = " + immediateSuperName, e);
-			}
-		}
-		return false;
-	}
-
 	public static boolean doesClassImplement(final ClassReader classReader, final String targetInterfaceInternalClassName)
 	{
 		final List<String> immediateInterfaces = Arrays.asList(classReader.getInterfaces());
@@ -195,5 +154,44 @@ public class ASMUtils {
 			//throw new RuntimeException("raw = " + classReader.getSuperName() + ", obf = " + ObfHelper.getInternalClassName(classReader.getSuperName()), e);
 		}
 		return false;
+	}
+	
+	public static LabelNode findLabelNode(final InsnList instructions, final int count)
+	{
+	    final Iterator<AbstractInsnNode> iterator = instructions.iterator();
+	    int i = 0;
+	    
+	    while (iterator.hasNext())
+        {
+            final AbstractInsnNode node = iterator.next();
+            
+            if (node.getType() == AbstractInsnNode.LABEL)
+            {
+                if (i++ == count)
+                {
+                    return (LabelNode) node;
+                }
+            }
+        }
+	    
+	    return null;
+	}
+	
+	public static LabelNode findPreviousLabelNode(final AbstractInsnNode start)
+	{
+	    AbstractInsnNode node = start;
+	    
+	    while (node != null)
+	    {
+	        if (node.getType() == AbstractInsnNode.LABEL)
+	        {
+	            return (LabelNode) node;
+	        }
+	        else
+	        {
+	            node = node.getPrevious();
+	        }
+	    }
+	    return null;
 	}
 }
