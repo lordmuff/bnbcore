@@ -26,7 +26,8 @@ public final class ObfNameHelper {
 		ADVANCEMENTMANAGER("net.minecraft.advancements.AdvancementManager"),
 		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList"),
 		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager"),
-		PLAYER_ADVANCEMENTS("net.minecraft.advancements.PlayerAdvancements");
+		PLAYER_ADVANCEMENTS("net.minecraft.advancements.PlayerAdvancements"),
+		ADVANCEMENT_ABOUT_TO_LOAD_EVENT("com.bloodnbonesgaming.bnbgamingcore.events.AdvancementAboutToLoadEvent");
 		
 		private final String name;
 
@@ -70,7 +71,11 @@ public final class ObfNameHelper {
 		LOAD_FUNCTIONS(Classes.FUNCTIONMANAGER, "func_193061_h", "()V", false),
 		ON_FUNCTION_RELOAD_POST(Classes.BNBEVENTFACTORY, "onFunctionReloadPost", "(Lnet/minecraft/advancements/FunctionManager;)V", false),
 		GRANT_CRITERION(Classes.PLAYER_ADVANCEMENTS, "func_192750_a", "(Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false),
-		ON_ADVANCEMENT_CRITERION_COMPLETED(Classes.BNBEVENTFACTORY, "onAdvancementCriterionCompleted", "(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/AdvancementProgress;)V", false);
+		ON_ADVANCEMENT_CRITERION_COMPLETED(Classes.BNBEVENTFACTORY, "onAdvancementCriterionCompleted", "(Lnet/minecraft/entity/player/EntityPlayerMP;Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/AdvancementProgress;)V", false),
+		LOAD_CUSTOM_ADVANCEMENTS(Classes.ADVANCEMENTMANAGER, "func_192781_c", "()Ljava/util/Map;", false),
+		LOAD_BUILTIN_ADVANCEMENTS(Classes.ADVANCEMENTMANAGER, "func_192777_a", "(Ljava/util/Map;)V", false),
+        ON_ADVANCEMENT_ABOUT_TO_LOAD(Classes.BNBEVENTFACTORY, "onAdvancementAboutToLoad", "(Ljava/io/Reader;Lnet/minecraft/util/ResourceLocation;)Lcom/bloodnbonesgaming/bnbgamingcore/events/AdvancementAboutToLoadEvent;", false),
+        ADVANCEMENT_ABOUT_TO_LOAD_EVENT_GET_JSON(Classes.ADVANCEMENT_ABOUT_TO_LOAD_EVENT, "getJson", "()Lcom/google/gson/JsonElement;", false);
 
 		private final Classes clazz;
 		private final String name;
@@ -136,7 +141,8 @@ public final class ObfNameHelper {
 		
 		MAPGENSTRUCTURE_WORLD(Classes.MAPGENSTRUCTURE, "field_75039_c", "Lnet/minecraft/world/World;"),
 		ADVANCEMENTMANAGER_ADVANCEMENTLIST(Classes.ADVANCEMENTMANAGER, "field_192784_c", "Lnet/minecraft/advancements/AdvancementList;"),
-		PLAYER_ADVANCEMENTS_PLAYER(Classes.PLAYER_ADVANCEMENTS, "field_192762_j", "Lnet/minecraft/entity/player/EntityPlayerMP;");
+		PLAYER_ADVANCEMENTS_PLAYER(Classes.PLAYER_ADVANCEMENTS, "field_192762_j", "Lnet/minecraft/entity/player/EntityPlayerMP;"),
+		ADVANCEMENT_MANAGER_GSON(Classes.ADVANCEMENTMANAGER, "field_192783_b", "Lcom/google/gson/Gson;");
 
 		private final Classes clazz;
 		private final String name;

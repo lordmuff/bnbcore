@@ -5,6 +5,7 @@ import java.util.List;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.IClassTransformerModule;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.ModuleDamageSourceClass;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.ModuleItemRightClickEvent;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementAboutToLoadEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPre;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementCriterionCompletedEvent;
@@ -42,7 +43,7 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 	public List<IClassTransformerModule> createModules() {
 		return Lists.newArrayList(new ModuleItemRightClickEvent(), new ModuleDamageSourceClass(), 
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
-				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent());
+				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent());
 	}
 
 	@Override

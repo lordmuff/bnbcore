@@ -1,6 +1,9 @@
 package com.bloodnbonesgaming.bnbgamingcore.events;
 
+import java.io.IOException;
 import java.util.Map;
+
+import com.google.gson.stream.JsonReader;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
@@ -100,4 +103,19 @@ public class BNBEventFactory {
 	{
 		MinecraftForge.EVENT_BUS.post(new AdvancementCriterionCompletedEvent(player, advancement, progress));
 	}
+    
+    public static AdvancementAboutToLoadEvent onAdvancementAboutToLoad(java.io.Reader reader, ResourceLocation location) throws IOException
+    {
+//        final String jsonString = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+//        java.io.StringReader stringReader = new java.io.StringReader(jsonString);
+        JsonReader jsonReader = new JsonReader(reader);
+        jsonReader.setLenient(false);
+//        json = gson.getAdapter(Advancement.Builder.class).toJsonTree(null);
+        
+        com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
+        com.google.gson.JsonElement json = parser.parse(jsonReader);
+        
+        AdvancementAboutToLoadEvent event = new AdvancementAboutToLoadEvent(location, json);
+        return event;
+    }
 }
