@@ -27,7 +27,8 @@ public final class ObfNameHelper {
 		ADVANCEMENTLIST("net.minecraft.advancements.AdvancementList"),
 		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager"),
 		PLAYER_ADVANCEMENTS("net.minecraft.advancements.PlayerAdvancements"),
-		ADVANCEMENT_ABOUT_TO_LOAD_EVENT("com.bloodnbonesgaming.bnbgamingcore.events.AdvancementAboutToLoadEvent");
+		ADVANCEMENT_ABOUT_TO_LOAD_EVENT("com.bloodnbonesgaming.bnbgamingcore.events.AdvancementAboutToLoadEvent"),
+		JSON_UTILS("net.minecraft.util.JsonUtils");
 		
 		private final String name;
 
@@ -75,7 +76,8 @@ public final class ObfNameHelper {
 		LOAD_CUSTOM_ADVANCEMENTS(Classes.ADVANCEMENTMANAGER, "func_192781_c", "()Ljava/util/Map;", false),
 		LOAD_BUILTIN_ADVANCEMENTS(Classes.ADVANCEMENTMANAGER, "func_192777_a", "(Ljava/util/Map;)V", false),
         ON_ADVANCEMENT_ABOUT_TO_LOAD(Classes.BNBEVENTFACTORY, "onAdvancementAboutToLoad", "(Ljava/io/Reader;Lnet/minecraft/util/ResourceLocation;)Lcom/bloodnbonesgaming/bnbgamingcore/events/AdvancementAboutToLoadEvent;", false),
-        ADVANCEMENT_ABOUT_TO_LOAD_EVENT_GET_JSON(Classes.ADVANCEMENT_ABOUT_TO_LOAD_EVENT, "getJson", "()Lcom/google/gson/JsonElement;", false);
+        ADVANCEMENT_ABOUT_TO_LOAD_EVENT_GET_JSON(Classes.ADVANCEMENT_ABOUT_TO_LOAD_EVENT, "getJson", "()Lcom/google/gson/JsonElement;", false),
+        JSON_UTILS_FROM_JSON(Classes.JSON_UTILS, "func_193839_a", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false);
 
 		private final Classes clazz;
 		private final String name;

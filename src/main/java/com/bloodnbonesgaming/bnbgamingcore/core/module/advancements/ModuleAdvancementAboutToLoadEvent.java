@@ -225,7 +225,7 @@ public class ModuleAdvancementAboutToLoadEvent implements IClassTransformerModul
         toFind.add(ObfNameHelper.Fields.ADVANCEMENT_MANAGER_GSON.toInsnNode(Opcodes.GETSTATIC));
         toFind.add(new VarInsnNode(Opcodes.ALOAD, 11));
         toFind.add(new LdcInsnNode(Type.getType("Lnet/minecraft/advancements/Advancement$Builder;")));
-        toFind.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "net/minecraft/util/JsonUtils", "fromJson", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false));
+        toFind.add(ObfNameHelper.Methods.JSON_UTILS_FROM_JSON.toInsnNode(Opcodes.INVOKESTATIC));
         toFind.add(new TypeInsnNode(Opcodes.CHECKCAST, "net/minecraft/advancements/Advancement$Builder"));
         toFind.add(new VarInsnNode(Opcodes.ASTORE, 12));
         
@@ -270,6 +270,13 @@ public class ModuleAdvancementAboutToLoadEvent implements IClassTransformerModul
         replacement.add(new VarInsnNode(Opcodes.ALOAD, 13));
         replacement.add(new MethodInsnNode(Opcodes.INVOKEINTERFACE, "java/util/Map", "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", true));
         
+        final AbstractInsnNode find = ASMHelper.find(method.instructions, toFind);
+        
+        if (find == null)
+        {
+            ASMDebugHelper.unexpectedMethodInstructionPattern(method.name + " find", transformedName);
+            return false;
+        }
         
         final AbstractInsnNode replaced = ASMHelper.findAndReplace(method.instructions, toFind, replacement);
         
