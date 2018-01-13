@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.objectweb.asm.ClassReader;
 
+import com.bloodnbonesgaming.bnbgamingcore.core.BNBGamingCorePlugin;
+
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ASMHelper;
 import squeek.asmhelper.com.bloodnbonesgaming.bnbgamingcore.ObfHelper;
 
@@ -28,18 +30,26 @@ public class ClassExtensionHelper
     {
         ClassExtensionHelper.superclasses.clear();
         
-        ClassReader classReader = new ClassReader(basicClass);
-        
-        while (classReader != null && ASMHelper.classHasSuper(classReader))
-        {
-            String immediateSuperName = classReader.getSuperName();
-            ClassExtensionHelper.superclasses.add(immediateSuperName);
+        try {
+            ClassReader classReader = new ClassReader(basicClass);
             
-            try
+            while (classReader != null && ASMHelper.classHasSuper(classReader))
             {
-                classReader = ASMHelper.getClassReaderForClassName(ObfHelper.getInternalClassName(immediateSuperName));
+                String immediateSuperName = classReader.getSuperName();
+                ClassExtensionHelper.superclasses.add(immediateSuperName);
+                
+                try
+                {
+                    classReader = ASMHelper.getClassReaderForClassName(ObfHelper.getInternalClassName(immediateSuperName));
+                }
+                catch (IOException e){
+                    BNBGamingCorePlugin.log.debug("Caught IOException while creating ClassReader for " + ObfHelper.getInternalClassName(immediateSuperName));
+                    break;
+                }
             }
-            catch (IOException e){}
+        }
+        catch (Exception e) {
+            BNBGamingCorePlugin.log.debug("Caught Exception while attempting to get class extensions for " + ClassExtensionHelper.currentClass);
         }
     }
 }
