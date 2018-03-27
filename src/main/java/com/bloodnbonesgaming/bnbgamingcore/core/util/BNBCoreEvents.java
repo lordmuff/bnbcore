@@ -30,7 +30,8 @@ public enum BNBCoreEvents {
 	FUNCTION_RELOAD_EVENT("FunctionReloadEvent", new String[]{"functionReloadEventPost"}),
 	FUNCTION_RELOAD_EVENT_POST("FunctionReloadEvent$Post", new String[]{"functionReloadEventPost"}),
 	ADVANCEMENT_CRITERION_COMPLETED_EVENT("AdvancementCriterionCompletedEvent", new String[]{"advancementCriterionCompletedEvent"}),
-	ADVANCEMENT_ABOUT_TO_LOAD_EVENT("AdvancementAboutToLoadEvent", new String[]{"advancementAboutToLoadEvent"});
+	ADVANCEMENT_ABOUT_TO_LOAD_EVENT("AdvancementAboutToLoadEvent", new String[]{"advancementAboutToLoadEvent"}),
+	ADVANCEMENT_REPLACE_MAP("ReplaceAdvancementMapWithLinkedHashMap", new String[]{"replaceAdvancementMapWithLinkedHashMap"});
 	
 	
 	@Getter
