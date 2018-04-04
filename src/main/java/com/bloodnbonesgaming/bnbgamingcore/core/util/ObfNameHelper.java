@@ -28,7 +28,10 @@ public final class ObfNameHelper {
 		FUNCTIONMANAGER("net.minecraft.advancements.FunctionManager"),
 		PLAYER_ADVANCEMENTS("net.minecraft.advancements.PlayerAdvancements"),
 		ADVANCEMENT_ABOUT_TO_LOAD_EVENT("com.bloodnbonesgaming.bnbgamingcore.events.AdvancementAboutToLoadEvent"),
-		JSON_UTILS("net.minecraft.util.JsonUtils");
+		JSON_UTILS("net.minecraft.util.JsonUtils"),
+		ADVANCEMENT$BUILDER("net.minecraft.advancements.Advancement$Builder"),
+		DISPLAY_INFO("net.minecraft.advancements.DisplayInfo"),
+		EXTENDED_DISPLAY_INFO("com.bloodnbonesgaming.triumph.advancements.display.ExtendedDisplayInfo");
 		
 		private final String name;
 
@@ -77,7 +80,10 @@ public final class ObfNameHelper {
 		LOAD_BUILTIN_ADVANCEMENTS(Classes.ADVANCEMENTMANAGER, "func_192777_a", "(Ljava/util/Map;)V", false),
         ON_ADVANCEMENT_ABOUT_TO_LOAD(Classes.BNBEVENTFACTORY, "onAdvancementAboutToLoad", "(Ljava/io/Reader;Lnet/minecraft/util/ResourceLocation;)Lcom/bloodnbonesgaming/bnbgamingcore/events/AdvancementAboutToLoadEvent;", false),
         ADVANCEMENT_ABOUT_TO_LOAD_EVENT_GET_JSON(Classes.ADVANCEMENT_ABOUT_TO_LOAD_EVENT, "getJson", "()Lcom/google/gson/JsonElement;", false),
-        JSON_UTILS_FROM_JSON(Classes.JSON_UTILS, "func_193839_a", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false);
+        JSON_UTILS_FROM_JSON(Classes.JSON_UTILS, "func_193839_a", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false),
+        ADVANCEMENT$BUILDER_READ_FROM(Classes.ADVANCEMENT$BUILDER, "func_192060_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/Advancement$Builder;", false),
+        DISPLAY_INFO_READ(Classes.DISPLAY_INFO, "func_192295_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
+        EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lcom/bloodnbonesgaming/triumph/advancements/display/ExtendedDisplayInfo;", false);
 
 		private final Classes clazz;
 		private final String name;

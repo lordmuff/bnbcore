@@ -81,7 +81,7 @@ public class ModuleAdvancementBuildEventPost implements IClassTransformerModule
 		toInject.add(ObfNameHelper.Fields.ADVANCEMENTMANAGER_ADVANCEMENTLIST.toInsnNode(Opcodes.GETSTATIC));
 		toInject.add(ObfNameHelper.Methods.ONADVANCEMENTBUILDPOST.toInsnNode(Opcodes.INVOKESTATIC));
 		
-		method.instructions.insertBefore(target, toInject);
+		method.instructions.insert(target, toInject);
 		return true;
 	}
 }
