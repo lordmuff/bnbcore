@@ -18,7 +18,7 @@ public class ModuleAdvancementSync implements IClassTransformerModule
     @Override
     public byte[] transform(final String name, final String transformedName, final byte[] basicClass)
     {
-        if (ASMUtils.doesClassEqual(transformedName, ObfNameHelper.Classes.PLAYER_ADVANCEMENTS))
+        if (ASMUtils.doesClassEqual(transformedName, ObfNameHelper.Classes.ADVANCEMENT$BUILDER))
         {
             final ClassNode classNode = ASMHelper.readClassFromBytes(basicClass);
             String methodName = ObfNameHelper.Methods.ADVANCEMENT$BUILDER_READ_FROM.getName();
