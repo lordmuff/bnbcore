@@ -83,7 +83,7 @@ public final class ObfNameHelper {
         JSON_UTILS_FROM_JSON(Classes.JSON_UTILS, "func_193839_a", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false),
         ADVANCEMENT$BUILDER_READ_FROM(Classes.ADVANCEMENT$BUILDER, "func_192060_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/Advancement$Builder;", false),
         DISPLAY_INFO_READ(Classes.DISPLAY_INFO, "func_192295_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
-        EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lcom/bloodnbonesgaming/triumph/advancements/display/ExtendedDisplayInfo;", false);
+        EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false);
 
 		private final Classes clazz;
 		private final String name;

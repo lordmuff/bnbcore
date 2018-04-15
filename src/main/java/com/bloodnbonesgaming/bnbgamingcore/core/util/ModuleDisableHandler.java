@@ -20,7 +20,6 @@ import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.LoaderException;
 import net.minecraftforge.fml.relauncher.FileListHelper;
-import net.minecraftforge.fml.relauncher.ModListHelper;
 
 public class ModuleDisableHandler {
 	
@@ -59,7 +58,7 @@ public class ModuleDisableHandler {
             modList = ObjectArrays.concat(modList, versionedCoreMods, File.class);
         }
 
-        modList = ObjectArrays.concat(modList, ModListHelper.additionalMods.values().toArray(new File[0]), File.class);
+//        modList = ObjectArrays.concat(modList, ModListHelper.additionalMods.values().toArray(new File[0]), File.class);
 
         modList = FileListHelper.sortFileList(modList);
 
