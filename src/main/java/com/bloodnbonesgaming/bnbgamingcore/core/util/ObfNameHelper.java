@@ -31,7 +31,8 @@ public final class ObfNameHelper {
 		JSON_UTILS("net.minecraft.util.JsonUtils"),
 		ADVANCEMENT$BUILDER("net.minecraft.advancements.Advancement$Builder"),
 		DISPLAY_INFO("net.minecraft.advancements.DisplayInfo"),
-		EXTENDED_DISPLAY_INFO("com.bloodnbonesgaming.triumph.advancements.display.ExtendedDisplayInfo");
+		EXTENDED_DISPLAY_INFO("com.bloodnbonesgaming.triumph.advancements.display.ExtendedDisplayInfo"),
+		ICRITERIONTRIGGER$LISTENER("net.minecraft.advancements.ICriterionTrigger$Listener");
 		
 		private final String name;
 
@@ -83,7 +84,9 @@ public final class ObfNameHelper {
         JSON_UTILS_FROM_JSON(Classes.JSON_UTILS, "func_193839_a", "(Lcom/google/gson/Gson;Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;", false),
         ADVANCEMENT$BUILDER_READ_FROM(Classes.ADVANCEMENT$BUILDER, "func_192060_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/Advancement$Builder;", false),
         DISPLAY_INFO_READ(Classes.DISPLAY_INFO, "func_192295_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
-        EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false);
+        EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
+        LISTENER_GRANT_CRITERION(Classes.ICRITERIONTRIGGER$LISTENER, "func_192159_a", "(Lnet/minecraft/advancements/PlayerAdvancements;)V", false),
+        ON_GRANT_CRITERION(Classes.BNBEVENTFACTORY, "onCriterionGranted", "(Lnet/minecraft/advancements/PlayerAdvancements;Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false);
 
 		private final Classes clazz;
 		private final String name;
@@ -150,7 +153,9 @@ public final class ObfNameHelper {
 		MAPGENSTRUCTURE_WORLD(Classes.MAPGENSTRUCTURE, "field_75039_c", "Lnet/minecraft/world/World;"),
 		ADVANCEMENTMANAGER_ADVANCEMENTLIST(Classes.ADVANCEMENTMANAGER, "field_192784_c", "Lnet/minecraft/advancements/AdvancementList;"),
 		PLAYER_ADVANCEMENTS_PLAYER(Classes.PLAYER_ADVANCEMENTS, "field_192762_j", "Lnet/minecraft/entity/player/EntityPlayerMP;"),
-		ADVANCEMENT_MANAGER_GSON(Classes.ADVANCEMENTMANAGER, "field_192783_b", "Lcom/google/gson/Gson;");
+		ADVANCEMENT_MANAGER_GSON(Classes.ADVANCEMENTMANAGER, "field_192783_b", "Lcom/google/gson/Gson;"),
+		ADVANCEMENT(Classes.ICRITERIONTRIGGER$LISTENER, "field_192161_b", "Lnet/minecraft/advancements/Advancement;"),
+		CRITERION_NAME(Classes.ICRITERIONTRIGGER$LISTENER, "field_192162_c", "Ljava/lang/String;");
 
 		private final Classes clazz;
 		private final String name;

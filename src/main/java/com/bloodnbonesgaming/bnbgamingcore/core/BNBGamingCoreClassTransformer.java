@@ -10,6 +10,7 @@ import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvanc
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPre;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementCriterionCompletedEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementSync;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleGrantCriterionEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.function.ModuleFunctionReloadEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenBaseClass;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenStructureClass;
@@ -45,7 +46,7 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 		return Lists.newArrayList(new ModuleItemRightClickEvent(), new ModuleDamageSourceClass(), 
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
 				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent(), 
-				new ModuleAdvancementSync());
+				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent());
 	}
 
 	@Override

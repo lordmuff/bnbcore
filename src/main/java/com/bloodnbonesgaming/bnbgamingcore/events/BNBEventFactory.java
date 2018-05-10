@@ -9,6 +9,7 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.FunctionManager;
+import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -117,5 +118,10 @@ public class BNBEventFactory {
         
         AdvancementAboutToLoadEvent event = new AdvancementAboutToLoadEvent(location, json);
         return event;
+    }
+    
+    public static boolean onCriterionGranted(final PlayerAdvancements playerAdvancements, final Advancement advancement, final String criterionName)
+    {
+        return MinecraftForge.EVENT_BUS.post(new GrantCriterionEvent(playerAdvancements, advancement, criterionName));
     }
 }

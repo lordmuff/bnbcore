@@ -31,7 +31,8 @@ public enum BNBCoreEvents {
 	FUNCTION_RELOAD_EVENT_POST("FunctionReloadEvent$Post", new String[]{"functionReloadEventPost"}),
 	ADVANCEMENT_CRITERION_COMPLETED_EVENT("AdvancementCriterionCompletedEvent", new String[]{"advancementCriterionCompletedEvent"}),
 	ADVANCEMENT_ABOUT_TO_LOAD_EVENT("AdvancementAboutToLoadEvent", new String[]{"advancementAboutToLoadEvent"}),
-	ADVANCEMENT_SYNC("AdvancementSync", new String[]{"advancementSync"});
+	ADVANCEMENT_SYNC("AdvancementSync", new String[]{"advancementSync"}),
+	GRANT_CRITERION_EVENT("GrantCriterionEvent", new String[]{"grantCriterionEvent"});
 	
 	
 	@Getter

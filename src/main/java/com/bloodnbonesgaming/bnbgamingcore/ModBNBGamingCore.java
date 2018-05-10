@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.LoadController;
 import net.minecraftforge.fml.common.ModMetadata;
 
 public class ModBNBGamingCore extends DummyModContainer {
-	
+	    
 	public ModBNBGamingCore() {
 		super(new ModMetadata());
 		final ModMetadata meta = this.getMetadata();
