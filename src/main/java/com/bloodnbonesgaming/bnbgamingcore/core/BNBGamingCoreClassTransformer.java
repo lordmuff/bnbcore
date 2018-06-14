@@ -10,12 +10,15 @@ import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvanc
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPre;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementCriterionCompletedEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementSync;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementVisibilityEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleGrantCriterionEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.function.ModuleFunctionReloadEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenBaseClass;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenStructureClass;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.minecraftserver.ModuleMinecraftServerTickEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.worldprovider.ModuleCreateChunkGeneratorEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.worldprovider.ModuleRegisterWorldEvent;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.worldserver.ModuleWorldServerEvents;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.BNBGamingClassTransformer;
 import com.google.common.collect.Lists;
@@ -46,7 +49,7 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 		return Lists.newArrayList(new ModuleItemRightClickEvent(), new ModuleDamageSourceClass(), 
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
 				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent(), 
-				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent());
+				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent(), new ModuleWorldServerEvents(), new ModuleMinecraftServerTickEvent(), new ModuleAdvancementVisibilityEvent());
 	}
 
 	@Override

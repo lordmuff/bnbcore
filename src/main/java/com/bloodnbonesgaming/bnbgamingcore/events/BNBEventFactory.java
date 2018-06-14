@@ -124,4 +124,37 @@ public class BNBEventFactory {
     {
         return MinecraftForge.EVENT_BUS.post(new GrantCriterionEvent(playerAdvancements, advancement, criterionName));
     }
+    
+    public static boolean onWorldServerTickPre()
+    {
+        return MinecraftForge.EVENT_BUS.post(new WorldServerEvent.Tick.Pre());
+    }
+    
+    public static boolean onWorldServerUpdateEntitiesPre()
+    {
+        return MinecraftForge.EVENT_BUS.post(new WorldServerEvent.UpdateEntities.Pre());
+    }
+    
+    public static boolean onMinecraftServerPostTickEvent()
+    {
+        return MinecraftForge.EVENT_BUS.post(new MinecraftServerPostTickEvent());
+    }
+    
+    public static void test(boolean bool)
+    {
+        if (!bool)
+        {
+            BNBEventFactory.test2();
+        }
+    }
+    
+    public static void test2()
+    {
+        
+    }
+    
+    public static boolean onAdvancementVisibilityEvent(final Advancement advancement, final PlayerAdvancements advancements)
+    {
+        return MinecraftForge.EVENT_BUS.post(new AdvancementVisibilityEvent(advancement, advancements));
+    }
 }

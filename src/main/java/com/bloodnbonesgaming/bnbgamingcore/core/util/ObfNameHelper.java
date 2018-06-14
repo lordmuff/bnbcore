@@ -32,7 +32,10 @@ public final class ObfNameHelper {
 		ADVANCEMENT$BUILDER("net.minecraft.advancements.Advancement$Builder"),
 		DISPLAY_INFO("net.minecraft.advancements.DisplayInfo"),
 		EXTENDED_DISPLAY_INFO("com.bloodnbonesgaming.triumph.advancements.display.ExtendedDisplayInfo"),
-		ICRITERIONTRIGGER$LISTENER("net.minecraft.advancements.ICriterionTrigger$Listener");
+		ICRITERIONTRIGGER$LISTENER("net.minecraft.advancements.ICriterionTrigger$Listener"),
+		WORLD_SERVER("net.minecraft.world.WorldServer"),
+		MINECRAFT_SERVER("net.minecraft.server.MinecraftServer"),
+		FML_COMMON_HANDLER("net.minecraftforge.fml.common.FMLCommonHandler");
 		
 		private final String name;
 
@@ -86,7 +89,18 @@ public final class ObfNameHelper {
         DISPLAY_INFO_READ(Classes.DISPLAY_INFO, "func_192295_b", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
         EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
         LISTENER_GRANT_CRITERION(Classes.ICRITERIONTRIGGER$LISTENER, "func_192159_a", "(Lnet/minecraft/advancements/PlayerAdvancements;)V", false),
-        ON_GRANT_CRITERION(Classes.BNBEVENTFACTORY, "onCriterionGranted", "(Lnet/minecraft/advancements/PlayerAdvancements;Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false);
+        ON_GRANT_CRITERION(Classes.BNBEVENTFACTORY, "onCriterionGranted", "(Lnet/minecraft/advancements/PlayerAdvancements;Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false),
+        WORLD_SERVER_TICK(Classes.WORLD_SERVER, "func_71217_p", "()V", false),
+        WORLD_SERVER_UPDATE_ENTITIES(Classes.WORLD_SERVER, "func_72939_s", "()V", false),
+        ON_WORLD_SERVER_TICK_PRE(Classes.BNBEVENTFACTORY, "onWorldServerTickPre", "()Z", false),
+        ON_WORLD_SERVER_UPDATE_ENTITIES_PRE(Classes.BNBEVENTFACTORY, "onWorldServerUpdateEntitiesPre", "()Z", false),
+        MINECRAFT_SERVER_UPDATE_TIME_LIGHT_ENTITIES(Classes.MINECRAFT_SERVER, "func_71190_q", "()V", false),
+        ON_WORLD_SERVER_FORGE_POST_EVENT(Classes.BNBEVENTFACTORY, "onMinecraftServerPostTickEvent", "()Z", false),
+        FML_COMMON_HANDLER_INSTANCE(Classes.FML_COMMON_HANDLER, "instance", "()Lnet/minecraftforge/fml/common/FMLCommonHandler;", false),
+        FML_COMMON_HANDLER_PRE_WORLD_TICK(Classes.FML_COMMON_HANDLER, "onPreWorldTick", "(Lnet/minecraft/world/World;)V", false),
+        FML_COMMON_HANDLER_POST_WORLD_TICK(Classes.FML_COMMON_HANDLER, "onPostWorldTick", "(Lnet/minecraft/world/World;)V", false),
+        SHOULD_BE_VISIBLE(Classes.PLAYER_ADVANCEMENTS, "func_192738_c", "(Lnet/minecraft/advancements/Advancement;)Z", false),
+        ON_ADVANCEMENT_VISIBILITY_EVENT(Classes.BNBEVENTFACTORY, "onAdvancementVisibilityEvent", "(Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/PlayerAdvancements;)Z", false);
 
 		private final Classes clazz;
 		private final String name;
