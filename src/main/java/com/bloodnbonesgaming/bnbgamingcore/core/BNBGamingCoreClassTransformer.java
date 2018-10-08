@@ -8,6 +8,7 @@ import com.bloodnbonesgaming.bnbgamingcore.core.module.ModuleItemRightClickEvent
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementAboutToLoadEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementBuildEventPre;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementCompletionEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementCriterionCompletedEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementSync;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementVisibilityEvent;
@@ -49,7 +50,8 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 		return Lists.newArrayList(new ModuleItemRightClickEvent(), new ModuleDamageSourceClass(), 
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
 				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent(), 
-				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent(), new ModuleWorldServerEvents(), new ModuleMinecraftServerTickEvent(), new ModuleAdvancementVisibilityEvent());
+				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent(), new ModuleWorldServerEvents(), new ModuleMinecraftServerTickEvent(), new ModuleAdvancementVisibilityEvent(),
+				new ModuleAdvancementCompletionEvent());
 	}
 
 	@Override

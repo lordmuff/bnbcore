@@ -84,12 +84,8 @@ public class ModuleAdvancementVisibilityEvent implements IClassTransformerModule
         final InsnList toInject = new InsnList();
         toInject.add(new VarInsnNode(Opcodes.ALOAD, 1));
         toInject.add(new VarInsnNode(Opcodes.ALOAD, 0));
-        final LabelNode label = new LabelNode();
         toInject.add(ObfNameHelper.Methods.ON_ADVANCEMENT_VISIBILITY_EVENT.toInsnNode(Opcodes.INVOKESTATIC));
-        toInject.add(new JumpInsnNode(Opcodes.IFEQ, label));
-        toInject.add(new InsnNode(Opcodes.ICONST_1));
         toInject.add(new InsnNode(Opcodes.IRETURN));
-        toInject.add(label);
         
         method.instructions.insert(target, toInject);
         return true;

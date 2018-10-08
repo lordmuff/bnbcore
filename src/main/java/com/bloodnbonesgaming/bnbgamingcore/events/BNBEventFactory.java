@@ -157,4 +157,9 @@ public class BNBEventFactory {
     {
         return MinecraftForge.EVENT_BUS.post(new AdvancementVisibilityEvent(advancement, advancements));
     }
+    
+    public static boolean onAdvancementCompletionEvent(final AdvancementProgress progress)
+    {
+    	return MinecraftForge.EVENT_BUS.post(new AdvancementCompletionEvent(progress));
+    }
 }

@@ -35,7 +35,8 @@ public enum BNBCoreEvents {
 	GRANT_CRITERION_EVENT("GrantCriterionEvent", new String[]{"grantCriterionEvent"}),
 	WORLD_SERVER_EVENTS("WorldServerEvents", new String[]{"worldServerEvents"}),
 	MINECRAFT_SERVER_POST_TICK_EVENT("MinecraftServerPostTickEvent", new String[]{"minecraftServerPostTickEvent"}),
-	ADVANCEMENT_VISIBILITY_EVENT("AdvancementVisibilityEvent", new String[]{"advancementVisibilityEvent"});
+	ADVANCEMENT_VISIBILITY_EVENT("AdvancementVisibilityEvent", new String[]{"advancementVisibilityEvent"}),
+	ADVANCEMENT_COMPLETION_EVENT("AdvancementCompletionEvent", new String[]{"advancementCompletionEvent"});
 	
 	
 	@Getter

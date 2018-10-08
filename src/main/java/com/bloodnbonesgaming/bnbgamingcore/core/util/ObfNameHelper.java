@@ -35,7 +35,8 @@ public final class ObfNameHelper {
 		ICRITERIONTRIGGER$LISTENER("net.minecraft.advancements.ICriterionTrigger$Listener"),
 		WORLD_SERVER("net.minecraft.world.WorldServer"),
 		MINECRAFT_SERVER("net.minecraft.server.MinecraftServer"),
-		FML_COMMON_HANDLER("net.minecraftforge.fml.common.FMLCommonHandler");
+		FML_COMMON_HANDLER("net.minecraftforge.fml.common.FMLCommonHandler"),
+		ADVANCEMENT_PROGRESS("net.minecraft.advancements.AdvancementProgress");
 		
 		private final String name;
 
@@ -100,7 +101,9 @@ public final class ObfNameHelper {
         FML_COMMON_HANDLER_PRE_WORLD_TICK(Classes.FML_COMMON_HANDLER, "onPreWorldTick", "(Lnet/minecraft/world/World;)V", false),
         FML_COMMON_HANDLER_POST_WORLD_TICK(Classes.FML_COMMON_HANDLER, "onPostWorldTick", "(Lnet/minecraft/world/World;)V", false),
         SHOULD_BE_VISIBLE(Classes.PLAYER_ADVANCEMENTS, "func_192738_c", "(Lnet/minecraft/advancements/Advancement;)Z", false),
-        ON_ADVANCEMENT_VISIBILITY_EVENT(Classes.BNBEVENTFACTORY, "onAdvancementVisibilityEvent", "(Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/PlayerAdvancements;)Z", false);
+        ON_ADVANCEMENT_VISIBILITY_EVENT(Classes.BNBEVENTFACTORY, "onAdvancementVisibilityEvent", "(Lnet/minecraft/advancements/Advancement;Lnet/minecraft/advancements/PlayerAdvancements;)Z", false),
+        ON_ADVANCEMENT_COMPLETION_EVENT(Classes.BNBEVENTFACTORY, "onAdvancementCompletionEvent", "(Lnet/minecraft/advancements/AdvancementProgress;)Z", false),
+        ADVANCEMENT_PROGRESS_IS_DONE(Classes.ADVANCEMENT_PROGRESS, "isDone", "()Z", false);
 
 		private final Classes clazz;
 		private final String name;
