@@ -162,4 +162,9 @@ public class BNBEventFactory {
     {
     	return MinecraftForge.EVENT_BUS.post(new AdvancementCompletionEvent(progress));
     }
+    
+    public static void onHurtCameraEffectEvent()
+    {
+    	MinecraftForge.EVENT_BUS.post(new HurtCameraEffectEvent());
+    }
 }

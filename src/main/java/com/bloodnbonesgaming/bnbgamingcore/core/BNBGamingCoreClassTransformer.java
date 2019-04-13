@@ -13,6 +13,7 @@ import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvanc
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementSync;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleAdvancementVisibilityEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.advancements.ModuleGrantCriterionEvent;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.entityrenderer.ModuleEntityRenderer;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.function.ModuleFunctionReloadEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenBaseClass;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenStructureClass;
@@ -51,7 +52,7 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
 				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent(), 
 				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent(), new ModuleWorldServerEvents(), new ModuleMinecraftServerTickEvent(), new ModuleAdvancementVisibilityEvent(),
-				new ModuleAdvancementCompletionEvent());
+				new ModuleAdvancementCompletionEvent(), new ModuleEntityRenderer());
 	}
 
 	@Override
