@@ -37,7 +37,8 @@ public enum BNBCoreEvents {
 	MINECRAFT_SERVER_POST_TICK_EVENT("MinecraftServerPostTickEvent", new String[]{"minecraftServerPostTickEvent"}),
 	ADVANCEMENT_VISIBILITY_EVENT("AdvancementVisibilityEvent", new String[]{"advancementVisibilityEvent"}),
 	ADVANCEMENT_COMPLETION_EVENT("AdvancementCompletionEvent", new String[]{"advancementCompletionEvent"}),
-	HURT_CAMERA_EFFECT_EVENT("HurtCameraEffectEvent", new String[]{"hurtCameraEffectEvent"});
+	HURT_CAMERA_EFFECT_EVENT("HurtCameraEffectEvent", new String[]{"hurtCameraEffectEvent"}),
+	MOB_SPAWNING_EVENT("MobSpawningEvent", new String[]{"mobSpawningEvent"});
 	
 	
 	@Getter

@@ -37,7 +37,9 @@ public final class ObfNameHelper {
 		MINECRAFT_SERVER("net.minecraft.server.MinecraftServer"),
 		FML_COMMON_HANDLER("net.minecraftforge.fml.common.FMLCommonHandler"),
 		ADVANCEMENT_PROGRESS("net.minecraft.advancements.AdvancementProgress"),
-		ENTITY_RENDERER("net.minecraft.client.renderer.EntityRenderer");
+		ENTITY_RENDERER("net.minecraft.client.renderer.EntityRenderer"),
+		WORLD_ENTITY_SPAWNER("net.minecraft.world.WorldEntitySpawner"),
+		ABSTRACT_JAVA_LINKER("jdk.internal.dynalink.beans.AbstractJavaLinker");
 		
 		private final String name;
 
@@ -92,7 +94,7 @@ public final class ObfNameHelper {
         EXTENDED_DISPLAY_INFO_READ(Classes.EXTENDED_DISPLAY_INFO, "read", "(Lnet/minecraft/network/PacketBuffer;)Lnet/minecraft/advancements/DisplayInfo;", false),
         LISTENER_GRANT_CRITERION(Classes.ICRITERIONTRIGGER$LISTENER, "func_192159_a", "(Lnet/minecraft/advancements/PlayerAdvancements;)V", false),
         ON_GRANT_CRITERION(Classes.BNBEVENTFACTORY, "onCriterionGranted", "(Lnet/minecraft/advancements/PlayerAdvancements;Lnet/minecraft/advancements/Advancement;Ljava/lang/String;)Z", false),
-        WORLD_SERVER_TICK(Classes.WORLD_SERVER, "func_71217_p", "()V", false),
+        WORLD_SERVER_TICK(Classes.WORLD_SERVER, "func_72835_b", "()V", false),
         WORLD_SERVER_UPDATE_ENTITIES(Classes.WORLD_SERVER, "func_72939_s", "()V", false),
         ON_WORLD_SERVER_TICK_PRE(Classes.BNBEVENTFACTORY, "onWorldServerTickPre", "()Z", false),
         ON_WORLD_SERVER_UPDATE_ENTITIES_PRE(Classes.BNBEVENTFACTORY, "onWorldServerUpdateEntitiesPre", "()Z", false),
@@ -106,7 +108,10 @@ public final class ObfNameHelper {
         ON_ADVANCEMENT_COMPLETION_EVENT(Classes.BNBEVENTFACTORY, "onAdvancementCompletionEvent", "(Lnet/minecraft/advancements/AdvancementProgress;)Z", false),
         ADVANCEMENT_PROGRESS_IS_DONE(Classes.ADVANCEMENT_PROGRESS, "isDone", "()Z", false),
         ON_HURT_CAMERA_EFFECT_EVENT(Classes.BNBEVENTFACTORY, "onHurtCameraEffectEvent", "()V", false),
-        HURT_CAMERA_EFFECT(Classes.ENTITY_RENDERER, "func_78482_e", "(F)V", false);
+        HURT_CAMERA_EFFECT(Classes.ENTITY_RENDERER, "func_78482_e", "(F)V", false),
+        ON_MOB_SPAWNING_EVENT(Classes.BNBEVENTFACTORY,  "onMobSpawningEvent", "(Lnet/minecraft/world/WorldEntitySpawner;Lnet/minecraft/world/WorldServer;ZZZ)I", false),
+        FIND_CHUNKS_FOR_SPAWNING(Classes.WORLD_ENTITY_SPAWNER, "func_77192_a", "(Lnet/minecraft/world/WorldServer;ZZZ)I", false),
+        ADD_MEMBER_METHOD(Classes.ABSTRACT_JAVA_LINKER, "addMember", "(Ljava/lang/String;Ljava/lang/reflect/AccessibleObject;Ljava/util/Map;)V", false);
 
 		private final Classes clazz;
 		private final String name;

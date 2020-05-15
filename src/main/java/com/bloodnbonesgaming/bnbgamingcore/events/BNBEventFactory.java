@@ -18,7 +18,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
@@ -166,5 +168,14 @@ public class BNBEventFactory {
     public static void onHurtCameraEffectEvent()
     {
     	MinecraftForge.EVENT_BUS.post(new HurtCameraEffectEvent());
+    }
+    
+    public static int onMobSpawningEvent(final WorldEntitySpawner spawner, final WorldServer server, final boolean spawnHostileMobs, final boolean spawnPeacefulMobs, final boolean spawnOnSetTickRate)
+    {
+    	if (!MinecraftForge.EVENT_BUS.post(new MobSpawningEvent(spawner, server, spawnHostileMobs, spawnPeacefulMobs, spawnOnSetTickRate)))
+    	{
+    		return spawner.findChunksForSpawning(server, spawnHostileMobs, spawnPeacefulMobs, spawnOnSetTickRate);
+    	}
+    	return 0;
     }
 }

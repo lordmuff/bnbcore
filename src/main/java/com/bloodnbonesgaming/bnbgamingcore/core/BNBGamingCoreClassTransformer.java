@@ -17,9 +17,11 @@ import com.bloodnbonesgaming.bnbgamingcore.core.module.entityrenderer.ModuleEnti
 import com.bloodnbonesgaming.bnbgamingcore.core.module.function.ModuleFunctionReloadEventPost;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenBaseClass;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.gen.ModuleMapGenStructureClass;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.javascript.ModuleNashornRemapping;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.minecraftserver.ModuleMinecraftServerTickEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.worldprovider.ModuleCreateChunkGeneratorEvent;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.worldprovider.ModuleRegisterWorldEvent;
+import com.bloodnbonesgaming.bnbgamingcore.core.module.worldserver.ModuleMobSpawning;
 import com.bloodnbonesgaming.bnbgamingcore.core.module.worldserver.ModuleWorldServerEvents;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.ASMAdditionHelper;
 import com.bloodnbonesgaming.bnbgamingcore.core.util.BNBGamingClassTransformer;
@@ -52,7 +54,7 @@ public class BNBGamingCoreClassTransformer extends BNBGamingClassTransformer{
 				new ModuleRegisterWorldEvent(), new ModuleMapGenBaseClass(), new ModuleMapGenStructureClass(), new ModuleCreateChunkGeneratorEvent(), new ModuleAdvancementBuildEventPre(), 
 				new ModuleAdvancementBuildEventPost(), new ModuleFunctionReloadEventPost(), new ModuleAdvancementCriterionCompletedEvent(), new ModuleAdvancementAboutToLoadEvent(), 
 				new ModuleAdvancementSync(), new ModuleGrantCriterionEvent(), new ModuleWorldServerEvents(), new ModuleMinecraftServerTickEvent(), new ModuleAdvancementVisibilityEvent(),
-				new ModuleAdvancementCompletionEvent(), new ModuleEntityRenderer());
+				new ModuleAdvancementCompletionEvent(), new ModuleEntityRenderer(), new ModuleMobSpawning());
 	}
 
 	@Override
