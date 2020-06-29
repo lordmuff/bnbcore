@@ -3,6 +3,8 @@ package com.bloodnbonesgaming.bnbgamingcore.core.util;
 import java.util.Arrays;
 import java.util.List;
 
+import com.bloodnbonesgaming.bnbgamingcore.events.StructureVillageFillBlocksDownEvent;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -38,7 +40,8 @@ public enum BNBCoreEvents {
 	ADVANCEMENT_VISIBILITY_EVENT("AdvancementVisibilityEvent", new String[]{"advancementVisibilityEvent"}),
 	ADVANCEMENT_COMPLETION_EVENT("AdvancementCompletionEvent", new String[]{"advancementCompletionEvent"}),
 	HURT_CAMERA_EFFECT_EVENT("HurtCameraEffectEvent", new String[]{"hurtCameraEffectEvent"}),
-	MOB_SPAWNING_EVENT("MobSpawningEvent", new String[]{"mobSpawningEvent"});
+	MOB_SPAWNING_EVENT("MobSpawningEvent", new String[]{"mobSpawningEvent"}),
+	VILLAGE_FILL_BLOCKS_DOWN_EVENT("StructureVillageFillBlocksDown", new String[]{"transformStructureVillagePiecesVillage"});
 	
 	
 	@Getter

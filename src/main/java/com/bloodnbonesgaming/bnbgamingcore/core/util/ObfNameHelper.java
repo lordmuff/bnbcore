@@ -39,7 +39,9 @@ public final class ObfNameHelper {
 		ADVANCEMENT_PROGRESS("net.minecraft.advancements.AdvancementProgress"),
 		ENTITY_RENDERER("net.minecraft.client.renderer.EntityRenderer"),
 		WORLD_ENTITY_SPAWNER("net.minecraft.world.WorldEntitySpawner"),
-		ABSTRACT_JAVA_LINKER("jdk.internal.dynalink.beans.AbstractJavaLinker");
+		ABSTRACT_JAVA_LINKER("jdk.internal.dynalink.beans.AbstractJavaLinker"),
+		STRUCTURE_VILLAGE_PIECES$VILLAGE("net.minecraft.world.gen.structure.StructureVillagePieces$Village"),
+		STRUCTURE_VILLAGE_PIECES("net.minecraft.world.gen.structure.StructureVillagePieces");
 		
 		private final String name;
 
@@ -111,7 +113,12 @@ public final class ObfNameHelper {
         HURT_CAMERA_EFFECT(Classes.ENTITY_RENDERER, "func_78482_e", "(F)V", false),
         ON_MOB_SPAWNING_EVENT(Classes.BNBEVENTFACTORY,  "onMobSpawningEvent", "(Lnet/minecraft/world/WorldEntitySpawner;Lnet/minecraft/world/WorldServer;ZZZ)I", false),
         FIND_CHUNKS_FOR_SPAWNING(Classes.WORLD_ENTITY_SPAWNER, "func_77192_a", "(Lnet/minecraft/world/WorldServer;ZZZ)I", false),
-        ADD_MEMBER_METHOD(Classes.ABSTRACT_JAVA_LINKER, "addMember", "(Ljava/lang/String;Ljava/lang/reflect/AccessibleObject;Ljava/util/Map;)V", false);
+        ADD_MEMBER_METHOD(Classes.ABSTRACT_JAVA_LINKER, "addMember", "(Ljava/lang/String;Ljava/lang/reflect/AccessibleObject;Ljava/util/Map;)V", false),
+        VILLAGE_REPLACE_AIR_AND_LIQUID_DOWNWARDS(Classes.STRUCTURE_VILLAGE_PIECES$VILLAGE, "func_175808_b", "(Lnet/minecraft/world/World;Lnet/minecraft/block/state/IBlockState;IIILnet/minecraft/world/gen/structure/StructureBoundingBox;)V", false),
+        ON_STRUCTURE_VILLAGE_FILL_BLOCKS_DOWN_EVENT(Classes.BNBEVENTFACTORY, "onStructureVillageFillBlocksDown", "(Lnet/minecraft/world/gen/structure/StructureVillagePieces$Village;Lnet/minecraft/world/World;Lnet/minecraft/block/state/IBlockState;IIILnet/minecraft/world/gen/structure/StructureBoundingBox;)Z", false),
+        VILLAGE_GET_AVERAGE_GROUND_LEVEL(Classes.STRUCTURE_VILLAGE_PIECES$VILLAGE, "func_74889_b", "(Lnet/minecraft/world/World;Lnet/minecraft/world/gen/structure/StructureBoundingBox;)I", false),
+        ON_VILLAGE_GET_AVERAGE_GROUND_LEVEL_EVENT(Classes.BNBEVENTFACTORY, "onVillageGetAverageGroundLevel", "(Lnet/minecraft/world/gen/structure/StructureVillagePieces$Village;Lnet/minecraft/world/World;Lnet/minecraft/world/gen/structure/StructureBoundingBox;)I", false),
+        VILLAGE_FIND_AND_CREATE_COMPONENT_FACTORY(Classes.STRUCTURE_VILLAGE_PIECES, "func_176065_a", "(Lnet/minecraft/world/gen/structure/StructureVillagePieces$Start;Lnet/minecraft/world/gen/structure/StructureVillagePieces$PieceWeight;Ljava/util/List;Ljava/util/Random;IIILnet/minecraft/util/EnumFacing;I)Lnet/minecraft/world/gen/structure/StructureVillagePieces$Village", false);
 
 		private final Classes clazz;
 		private final String name;

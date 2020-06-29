@@ -10,6 +10,7 @@ import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.FunctionManager;
 import net.minecraft.advancements.PlayerAdvancements;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -24,6 +25,8 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
+import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.StructureVillagePieces.Village;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BNBEventFactory {
@@ -167,7 +170,9 @@ public class BNBEventFactory {
     
     public static void onHurtCameraEffectEvent()
     {
-    	MinecraftForge.EVENT_BUS.post(new HurtCameraEffectEvent());
+    	if (MinecraftForge.EVENT_BUS.post(new HurtCameraEffectEvent())) {
+    		return;
+    	}
     }
     
     public static int onMobSpawningEvent(final WorldEntitySpawner spawner, final WorldServer server, final boolean spawnHostileMobs, final boolean spawnPeacefulMobs, final boolean spawnOnSetTickRate)
@@ -177,5 +182,17 @@ public class BNBEventFactory {
     		return spawner.findChunksForSpawning(server, spawnHostileMobs, spawnPeacefulMobs, spawnOnSetTickRate);
     	}
     	return 0;
+    }
+    
+    public static boolean onStructureVillageFillBlocksDown(Village piece, World world, IBlockState state, int x, int y, int z, StructureBoundingBox boundingBox)
+    {
+    	return MinecraftForge.EVENT_BUS.post(new StructureVillageFillBlocksDownEvent(piece, world, state, x, y, z, boundingBox));
+    }
+    
+    public static int onVillageGetAverageGroundLevel(Village piece, World world, StructureBoundingBox boundingBox)
+    {
+    	StructureVillageGetAverageGroundLevelEvent event = new StructureVillageGetAverageGroundLevelEvent(piece, world, boundingBox);
+    	MinecraftForge.EVENT_BUS.post(event);
+    	return event.averageGroundLevel;
     }
 }
